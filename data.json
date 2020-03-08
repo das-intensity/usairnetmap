@@ -1,0 +1,514 @@
+{
+	"states": {
+		"AK": {
+			"code": "AK",
+			"name": "Alaska",
+			"stations": {
+				"PAAK": {
+					"code": "PAAK",
+					"name": "Atka",
+					"latitude": 52.220001220703125,
+					"longitude": -174.2100067138672
+				},
+				"PABR": {
+					"code": "PABR",
+					"name": "Barrow",
+					"latitude": 71.27999877929688,
+					"longitude": -156.77999877929688
+				},
+				"PADK": {
+					"code": "PADK",
+					"name": "Adak Is",
+					"latitude": 51.880001068115234,
+					"longitude": -176.64999389648438
+				},
+				"PAFM": {
+					"code": "PAFM",
+					"name": "Ambler",
+					"latitude": 67.0999984741211,
+					"longitude": -157.85000610351562
+				},
+				"PAGN": {
+					"code": "PAGN",
+					"name": "Angoon",
+					"latitude": 57.5,
+					"longitude": -134.5800018310547
+				},
+				"PAKP": {
+					"code": "PAKP",
+					"name": "Anaktuvuk",
+					"latitude": 68.16999816894531,
+					"longitude": -151.77000427246094
+				},
+				"PANC": {
+					"code": "PANC",
+					"name": "Anchorage",
+					"latitude": 61.16999816894531,
+					"longitude": -150.02999877929688
+				},
+				"PANI": {
+					"code": "PANI",
+					"name": "Aniak",
+					"latitude": 61.58000183105469,
+					"longitude": -159.52999877929688
+				},
+				"PANT": {
+					"code": "PANT",
+					"name": "Annette Island",
+					"latitude": 55.029998779296875,
+					"longitude": -131.57000732421875
+				},
+				"PANV": {
+					"code": "PANV",
+					"name": "Annik Airport",
+					"latitude": 62.650001525878906,
+					"longitude": -160.17999267578125
+				},
+				"PARC": {
+					"code": "PARC",
+					"name": "Arctic Village",
+					"latitude": 68.12000274658203,
+					"longitude": -145.57000732421875
+				},
+				"PATQ": {
+					"code": "PATQ",
+					"name": "Atqasuk",
+					"latitude": 70.47000122070312,
+					"longitude": -157.44000244140625
+				}
+			}
+		},
+		"AL": {
+			"code": "AL",
+			"name": "Alabama",
+			"stations": {
+				"K0J4": {
+					"code": "K0J4",
+					"name": "Florala Municipal",
+					"latitude": 31.040000915527344,
+					"longitude": -86.30999755859375
+				},
+				"K1M4": {
+					"code": "K1M4",
+					"name": "Haleyviille/Posey",
+					"latitude": 34.279998779296875,
+					"longitude": -87.5999984741211
+				},
+				"K3A1": {
+					"code": "K3A1",
+					"name": "Folsom Field Arpt",
+					"latitude": 34.27000045776367,
+					"longitude": -86.86000061035156
+				},
+				"K4A9": {
+					"code": "K4A9",
+					"name": "Isbell Field Arpt",
+					"latitude": 34.470001220703125,
+					"longitude": -85.72000122070312
+				},
+				"K79J": {
+					"code": "K79J",
+					"name": "Andalusia/Opp",
+					"latitude": 31.31999969482422,
+					"longitude": -86.4000015258789
+				},
+				"K8A0": {
+					"code": "K8A0",
+					"name": "Albertville Municipal Airport",
+					"latitude": 34.22999954223633,
+					"longitude": -86.26000213623047
+				},
+				"KALX": {
+					"code": "KALX",
+					"name": "Alexander City",
+					"latitude": 32.90999984741211,
+					"longitude": -85.95999908447266
+				},
+				"KANB": {
+					"code": "KANB",
+					"name": "Anniston",
+					"latitude": 33.59000015258789,
+					"longitude": -85.8499984741211
+				},
+				"KASN": {
+					"code": "KASN",
+					"name": "Talladega Municipal Airport",
+					"latitude": 33.56999969482422,
+					"longitude": -86.05000305175781
+				},
+				"KAUO": {
+					"code": "KAUO",
+					"name": "Auburn",
+					"latitude": 32.58000183105469,
+					"longitude": -85.5
+				},
+				"KBFM": {
+					"code": "KBFM",
+					"name": "Brookley Arpt",
+					"latitude": 30.6299991607666,
+					"longitude": -88.06999969482422
+				},
+				"KBHM": {
+					"code": "KBHM",
+					"name": "Birmingham",
+					"latitude": 33.56999969482422,
+					"longitude": -86.75
+				},
+				"KDCU": {
+					"code": "KDCU",
+					"name": "Decatur",
+					"latitude": 34.650001525878906,
+					"longitude": -86.94000244140625
+				},
+				"KDHN": {
+					"code": "KDHN",
+					"name": "Dothan",
+					"latitude": 31.31999969482422,
+					"longitude": -85.44999694824219
+				},
+				"KEET": {
+					"code": "KEET",
+					"name": "Calera",
+					"latitude": 33.18000030517578,
+					"longitude": -86.77999877929688
+				},
+				"KEUF": {
+					"code": "KEUF",
+					"name": "Weedon Field Airport",
+					"latitude": 31.950000762939453,
+					"longitude": -85.12999725341797
+				},
+				"KGAD": {
+					"code": "KGAD",
+					"name": "Gadsden",
+					"latitude": 33.970001220703125,
+					"longitude": -86.08000183105469
+				},
+				"KGZH": {
+					"code": "KGZH",
+					"name": "Evergreen",
+					"latitude": 31.420000076293945,
+					"longitude": -87.05000305175781
+				},
+				"KHSV": {
+					"code": "KHSV",
+					"name": "Huntsville",
+					"latitude": 34.650001525878906,
+					"longitude": -86.7699966430664
+				},
+				"KHUA": {
+					"code": "KHUA",
+					"name": "Redstone Arsenal",
+					"latitude": 34.68000030517578,
+					"longitude": -86.68000030517578
+				},
+				"KJFX": {
+					"code": "KJFX",
+					"name": "Walker County Bevill Field",
+					"latitude": 33.900001525878906,
+					"longitude": -87.30999755859375
+				},
+				"KJKA": {
+					"code": "KJKA",
+					"name": "Jack Edwards Airport",
+					"latitude": 30.290000915527344,
+					"longitude": -87.66999816894531
+				},
+				"KLOR": {
+					"code": "KLOR",
+					"name": "Lowe Ahp/Ft Rucker",
+					"latitude": 31.360000610351562,
+					"longitude": -85.75
+				},
+				"KMDQ": {
+					"code": "KMDQ",
+					"name": "Madison County Exec",
+					"latitude": 34.86000061035156,
+					"longitude": -86.55999755859375
+				},
+				"KMGM": {
+					"code": "KMGM",
+					"name": "Montgomery",
+					"latitude": 32.29999923706055,
+					"longitude": -86.4000015258789
+				},
+				"KMOB": {
+					"code": "KMOB",
+					"name": "Mobile",
+					"latitude": 30.68000030517578,
+					"longitude": -88.25
+				},
+				"KMSL": {
+					"code": "KMSL",
+					"name": "Muscle Shoals",
+					"latitude": 34.75,
+					"longitude": -87.62000274658203
+				},
+				"KMXF": {
+					"code": "KMXF",
+					"name": "Maxwell Afb",
+					"latitude": 32.380001068115234,
+					"longitude": -86.37000274658203
+				},
+				"KOZR": {
+					"code": "KOZR",
+					"name": "Ft Rucker",
+					"latitude": 31.270000457763672,
+					"longitude": -85.72000122070312
+				},
+				"KPRN": {
+					"code": "KPRN",
+					"name": "Mac Crenshaw Memorial Airport",
+					"latitude": 31.850000381469727,
+					"longitude": -86.61000061035156
+				},
+				"KTCL": {
+					"code": "KTCL",
+					"name": "Tuscaloosa",
+					"latitude": 33.22999954223633,
+					"longitude": -87.62000274658203
+				},
+				"KTOI": {
+					"code": "KTOI",
+					"name": "Troy",
+					"latitude": 31.860000610351562,
+					"longitude": -86.01000213623047
+				}
+			}
+		},
+		"PA": {
+			"code": "PA",
+			"name": "Pennsylvania",
+			"stations": {
+				"KABE": {
+					"code": "KABE",
+					"name": "Allentown",
+					"latitude": 40.650001525878906,
+					"longitude": -75.43000030517578
+				},
+				"KAFJ": {
+					"code": "KAFJ",
+					"name": "Washington",
+					"latitude": 40.130001068115234,
+					"longitude": -80.27999877929688
+				},
+				"KAGC": {
+					"code": "KAGC",
+					"name": "Allegheny County Arpt",
+					"latitude": 40.349998474121094,
+					"longitude": -79.93000030517578
+				},
+				"KAOO": {
+					"code": "KAOO",
+					"name": "Altoona",
+					"latitude": 40.29999923706055,
+					"longitude": -78.31999969482422
+				},
+				"KAVP": {
+					"code": "KAVP",
+					"name": "Scranton",
+					"latitude": 41.33000183105469,
+					"longitude": -75.7300033569336
+				},
+				"KBFD": {
+					"code": "KBFD",
+					"name": "Bradford",
+					"latitude": 41.79999923706055,
+					"longitude": -78.62999725341797
+				},
+				"KBTP": {
+					"code": "KBTP",
+					"name": "Butler County",
+					"latitude": 40.779998779296875,
+					"longitude": -79.94999694824219
+				},
+				"KBVI": {
+					"code": "KBVI",
+					"name": "Beaver Falls",
+					"latitude": 40.77000045776367,
+					"longitude": -80.4000015258789
+				},
+				"KCXY": {
+					"code": "KCXY",
+					"name": "Harrisburg",
+					"latitude": 40.220001220703125,
+					"longitude": -76.8499984741211
+				},
+				"KDUJ": {
+					"code": "KDUJ",
+					"name": "Dubois",
+					"latitude": 41.18000030517578,
+					"longitude": -78.9000015258789
+				},
+				"KDYL": {
+					"code": "KDYL",
+					"name": "Doylestown",
+					"latitude": 40.33000183105469,
+					"longitude": -75.12000274658203
+				},
+				"KERI": {
+					"code": "KERI",
+					"name": "Erie",
+					"latitude": 42.08000183105469,
+					"longitude": -80.18000030517578
+				},
+				"KFIG": {
+					"code": "KFIG",
+					"name": "Clearfield",
+					"latitude": 41.04999923706055,
+					"longitude": -78.41000366210938
+				},
+				"KFKL": {
+					"code": "KFKL",
+					"name": "Franklin",
+					"latitude": 41.380001068115234,
+					"longitude": -79.87000274658203
+				},
+				"KGKJ": {
+					"code": "KGKJ",
+					"name": "Meadville",
+					"latitude": 41.630001068115234,
+					"longitude": -80.20999908447266
+				},
+				"KIDI": {
+					"code": "KIDI",
+					"name": "Stewart Field",
+					"latitude": 40.630001068115234,
+					"longitude": -79.0999984741211
+				},
+				"KIPT": {
+					"code": "KIPT",
+					"name": "Williamsport",
+					"latitude": 41.25,
+					"longitude": -76.91999816894531
+				},
+				"KJST": {
+					"code": "KJST",
+					"name": "Johnstown",
+					"latitude": 40.31999969482422,
+					"longitude": -78.83000183105469
+				},
+				"KLBE": {
+					"code": "KLBE",
+					"name": "Latrobe",
+					"latitude": 40.279998779296875,
+					"longitude": -79.4000015258789
+				},
+				"KLNS": {
+					"code": "KLNS",
+					"name": "Lancaster",
+					"latitude": 40.119998931884766,
+					"longitude": -76.30000305175781
+				},
+				"KLOM": {
+					"code": "KLOM",
+					"name": "Philadelphia/Wings",
+					"latitude": 40.13999938964844,
+					"longitude": -75.2699966430664
+				},
+				"KMDT": {
+					"code": "KMDT",
+					"name": "Middletwn/Harrisb",
+					"latitude": 40.20000076293945,
+					"longitude": -76.7699966430664
+				},
+				"KMPO": {
+					"code": "KMPO",
+					"name": "Pocono Mnts Municipal Ap",
+					"latitude": 41.13999938964844,
+					"longitude": -75.4000015258789
+				},
+				"KMQS": {
+					"code": "KMQS",
+					"name": "Coatesville/Carlson",
+					"latitude": 39.97999954223633,
+					"longitude": -75.87000274658203
+				},
+				"KMUI": {
+					"code": "KMUI",
+					"name": "Muir Aaf",
+					"latitude": 40.43000030517578,
+					"longitude": -76.56999969482422
+				},
+				"KNXX": {
+					"code": "KNXX",
+					"name": "Willow Grove NAS",
+					"latitude": 40.18000030517578,
+					"longitude": -75.12999725341797
+				},
+				"KPHL": {
+					"code": "KPHL",
+					"name": "Philadelphia",
+					"latitude": 39.880001068115234,
+					"longitude": -75.25
+				},
+				"KPIT": {
+					"code": "KPIT",
+					"name": "Pittsburgh",
+					"latitude": 40.5,
+					"longitude": -80.22000122070312
+				},
+				"KPNE": {
+					"code": "KPNE",
+					"name": "N Philadelphia",
+					"latitude": 40.08000183105469,
+					"longitude": -75.0199966430664
+				},
+				"KPTW": {
+					"code": "KPTW",
+					"name": "Pottstown",
+					"latitude": 40.22999954223633,
+					"longitude": -75.55999755859375
+				},
+				"KRDG": {
+					"code": "KRDG",
+					"name": "Reading",
+					"latitude": 40.380001068115234,
+					"longitude": -75.97000122070312
+				},
+				"KRYT": {
+					"code": "KRYT",
+					"name": "Fountain Dale",
+					"latitude": 39.72999954223633,
+					"longitude": -77.43000030517578
+				},
+				"KSEG": {
+					"code": "KSEG",
+					"name": "Selinsgrove",
+					"latitude": 40.810001373291016,
+					"longitude": -76.87000274658203
+				},
+				"KTHV": {
+					"code": "KTHV",
+					"name": "York",
+					"latitude": 39.90999984741211,
+					"longitude": -76.87999725341797
+				},
+				"KUCP": {
+					"code": "KUCP",
+					"name": "New Castle Municipal Airport",
+					"latitude": 41.029998779296875,
+					"longitude": -80.41000366210938
+				},
+				"KUKT": {
+					"code": "KUKT",
+					"name": "Quakertown",
+					"latitude": 40.439998626708984,
+					"longitude": -75.37999725341797
+				},
+				"KUNV": {
+					"code": "KUNV",
+					"name": "University Park",
+					"latitude": 40.849998474121094,
+					"longitude": -77.8499984741211
+				},
+				"KXLL": {
+					"code": "KXLL",
+					"name": "Allentown",
+					"latitude": 40.56999969482422,
+					"longitude": -75.48999786376953
+				}
+			}
+		}
+	}
+}
