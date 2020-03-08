@@ -7,7 +7,7 @@ import (
 	"log"
 	"net/http"
 	"os"
-	"reflect"
+	//"reflect"
 	"regexp"
 	"strconv"
 	"strings"
@@ -94,27 +94,53 @@ func scrapeStation(state string, station string) {
 		log.Fatal(fail)
 	}
 
-	span, fail := getElement(td, "span", Attribute{"class", "norm2"})
+	// get the heading that contains the station title
+	headingSpan, fail := getElement(td, "span", Attribute{"class", "bolder"})
+	if fail {
+		log.Fatal(fail)
+	}
+	headingStrong := headingSpan.FirstChild
+	headingText := headingStrong.Data
+	//fmt.Printf("headingText: %s\n", headingText)
+
+	headingPrefix := "Aviation Weather Report for "
+	if !strings.Contains(headingText, headingPrefix) {
+		log.Fatal("Heaing text (" + headingText + ") doesn't contain expected prefix (" + headingPrefix + ")")
+	}
+
+	stationText := strings.Replace(headingText, headingPrefix, "", -1)
+	//fmt.Printf("stationText: %s\n", stationText)
+
+	//stationText = "Franklin, Somewhere, Pennsylvania"
+	// intentionally split by comma and space, then rejoin for the title
+	stationTextParts := strings.Split(stationText, ", ")
+	stationTitle := strings.Join(stationTextParts[0:len(stationTextParts)-1], ", ")
+	// TODO read state from JSON and compare
+	/*
+	stateFullScraped := stationTextParts[len(stationTextParts)-1]
+	if stateFullScraped != stateFull {
+		log.Fatal("scraped state name " + stateFullScraped + " not equal to expected state name " + stateFull)
+	}
+	*/
+	//fmt.Printf("stationTitle: %s\n", stationTitle)
+	//fmt.Printf("stateFullScraped: %s\n", stateFullScraped)
+
+	// get the details line, and extract out station code (for confirmation) and coords
+	detailSpan, fail := getElement(td, "span", Attribute{"class", "norm2"})
 	if fail {
 		log.Fatal(fail)
 	}
 
-	text := span.FirstChild.Data
+	text := detailSpan.FirstChild.Data
 	spaces := regexp.MustCompile(` +`)
-	//fmt.Printf("span: %s\n", text)
 
 	tokens := spaces.Split(text, -1)
-	/*
-	for _, token := range tokens {
-		fmt.Println(token)
-	}
-	*/
 
 	if tokens[0] != "Station:" {
 		log.Fatal("Error finding 'Station:' in " + text)
 	}
 	if tokens[1] != station {
-		log.Fatal("Error finding station name in " + text)
+		log.Fatal("Scraped station code " + tokens[1] + ", expected " + station)
 	}
 
 	// all USA should be North/West, so just assert them
@@ -134,7 +160,11 @@ func scrapeStation(state string, station string) {
 		log.Fatal(err)
 	}
 
-	fmt.Printf("Station %s successfully found at North: %f, West: %f\n", station, north, west)
+	fmt.Printf("%s Station %s was successfully scraped\n", state, station)
+	fmt.Printf("- Name: %s\n", stationTitle)
+	fmt.Printf("- Latitude: %f North\n", north)
+	fmt.Printf("- Longitude: %f West\n", west)
+	fmt.Printf("\n")
 }
 
 
@@ -146,7 +176,7 @@ func scrapeState(state string) {
 		log.Fatal(fail)
 	}
 	stations := getSelectOptions(sel)
-	fmt.Println(len(stations))
+	//fmt.Println(len(stations))
 	for i, station := range stations {
 		fmt.Printf("station %d: %s - %s\n", i, station.code, station.name)
 		scrapeStation(state, station.code)
@@ -165,7 +195,7 @@ func scrapeUSA() {
 		log.Fatal(fail)
 	}
 	states := getSelectOptions(sel)
-	fmt.Println(len(states))
+	//fmt.Println(len(states))
 	for i, state := range states {
 		fmt.Printf("state %d: %s - %s\n", i, state.code, state.name)
 		scrapeState(state.code)
@@ -177,8 +207,8 @@ func scrapeUSA() {
 
 func main() {
 	args := os.Args
-	fmt.Println(reflect.TypeOf(args))
-	fmt.Println(len(args))
+	//fmt.Println(reflect.TypeOf(args))
+	//fmt.Println(len(args))
 	if len(args) == 1 {
 		scrapeUSA()
 	} else if len(args) == 2 {
