@@ -28,8 +28,8 @@ type Attribute struct {
 type USAirNetMapStationData struct {
 	Code string `json:"code"`
 	Name string `json:"name"`
-	North float64 `json:"north"`
-	West float64 `json:"west"`
+	Latitude float64 `json:"latitude"`
+	Longitude float64 `json:"longitude"`
 }
 
 type USAirNetMapStateData struct {
@@ -198,8 +198,8 @@ func scrapeStation(state string, station string) {
 		}
 	}
 	//- assign values for North/West without checking
-	stationData.North = north
-	stationData.West = west
+	stationData.Latitude = north
+	stationData.Longitude = west
 
 	fmt.Printf("%s Station %s was successfully scraped\n", state, station)
 	fmt.Printf("- Name: %s\n", stationName)
