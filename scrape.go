@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"golang.org/x/net/html"
 	"io/ioutil"
@@ -23,6 +24,25 @@ type Attribute struct {
 	name string
 	value string
 }
+
+type USAirNetMapStationData struct {
+	Code string
+	Name string
+	North float64
+	West float64
+}
+
+type USAirNetMapStateData struct {
+	Code string
+	Name string
+	Stations map[string]*USAirNetMapStationData
+}
+
+type USAirNetMapData struct {
+	States map[string]*USAirNetMapStateData
+}
+
+var data USAirNetMapData
 
 func getSelectOptions(node *html.Node) []Option {
 	options := make([]Option, 0, 1000)
@@ -90,15 +110,11 @@ func scrapeStation(state string, station string) {
 	root := getNodeFromUrl(url)
 
 	td, fail := getElement(root, "td", Attribute{"class", "norm2"})
-	if fail {
-		log.Fatal(fail)
-	}
+	if fail { log.Fatal(fail) }
 
 	// get the heading that contains the station title
 	headingSpan, fail := getElement(td, "span", Attribute{"class", "bolder"})
-	if fail {
-		log.Fatal(fail)
-	}
+	if fail { log.Fatal(fail) }
 	headingStrong := headingSpan.FirstChild
 	headingText := headingStrong.Data
 	//fmt.Printf("headingText: %s\n", headingText)
@@ -114,57 +130,85 @@ func scrapeStation(state string, station string) {
 	//stationText = "Franklin, Somewhere, Pennsylvania"
 	// intentionally split by comma and space, then rejoin for the title
 	stationTextParts := strings.Split(stationText, ", ")
-	stationTitle := strings.Join(stationTextParts[0:len(stationTextParts)-1], ", ")
-	// TODO read state from JSON and compare
-	/*
-	stateFullScraped := stationTextParts[len(stationTextParts)-1]
-	if stateFullScraped != stateFull {
-		log.Fatal("scraped state name " + stateFullScraped + " not equal to expected state name " + stateFull)
-	}
-	*/
-	//fmt.Printf("stationTitle: %s\n", stationTitle)
-	//fmt.Printf("stateFullScraped: %s\n", stateFullScraped)
+	stationName := strings.Join(stationTextParts[0:len(stationTextParts)-1], ", ")
+	stateName := stationTextParts[len(stationTextParts)-1]
+	//fmt.Printf("stationName: %s\n", stationName)
+	//fmt.Printf("stateName: %s\n", stateName)
 
 	// get the details line, and extract out station code (for confirmation) and coords
 	detailSpan, fail := getElement(td, "span", Attribute{"class", "norm2"})
-	if fail {
-		log.Fatal(fail)
-	}
+	if fail { log.Fatal(fail) }
 
 	text := detailSpan.FirstChild.Data
 	spaces := regexp.MustCompile(` +`)
 
 	tokens := spaces.Split(text, -1)
 
-	if tokens[0] != "Station:" {
-		log.Fatal("Error finding 'Station:' in " + text)
-	}
-	if tokens[1] != station {
-		log.Fatal("Scraped station code " + tokens[1] + ", expected " + station)
-	}
+	if tokens[0] != "Station:" { log.Fatal("Error finding 'Station:' in " + text) }
+	if tokens[1] != station { log.Fatal("Scraped station code " + tokens[1] + ", expected " + station) }
 
 	// all USA should be North/West, so just assert them
-	if tokens[3] != "North:" {
-		log.Fatal("Error finding 'North:' name in " + text)
-	}
+	if tokens[3] != "North:" { log.Fatal("Error finding 'North:' name in " + text) }
 	north, err := strconv.ParseFloat(tokens[4], 32)
-	if err != nil {
-		log.Fatal(err)
-	}
+	if err != nil { log.Fatal(err) }
 
 	if tokens[6] != "West:" {
 		log.Fatal("Error finding 'West:' name in " + text)
 	}
 	west, err := strconv.ParseFloat(tokens[7], 32)
-	if err != nil {
-		log.Fatal(err)
+	if err != nil { log.Fatal(err) }
+
+	// write scraped information to <data>
+	//- ensure states map exists
+	if data.States == nil { data.States = map[string]*USAirNetMapStateData{} }
+	//- ensure stateData object exists
+	stateData := data.States[state]
+	if stateData == nil {
+		data.States[state] = &USAirNetMapStateData{}
+		stateData = data.States[state]
 	}
+	//- assign state code if not yet assigned
+	if stateData.Code == "" { stateData.Code = state }
+	//- assign state name if first time, or confirm
+	if stateData.Name == "" {
+		stateData.Name = stateName
+		fmt.Println(stateName)
+	} else {
+		if stateData.Name != stateName {
+			log.Fatal("scraped state name " + stateName + " not equal to existing state name " + stateData.Name)
+		}
+	}
+	//- ensure stations is not nil
+	if stateData.Stations == nil { stateData.Stations = map[string]*USAirNetMapStationData{} }
+	//- ensure stationData object exists
+	stationData := stateData.Stations[station]
+	if stationData == nil {
+		stateData.Stations[station] = &USAirNetMapStationData{}
+		stationData = stateData.Stations[station]
+	}
+	//- assign station code if not yet assigned
+	if stationData.Code == "" { stationData.Code = station }
+	//- assign station name if first time, or confirm
+	if stationData.Name == "" {
+		stationData.Name = stationName
+		fmt.Println(stationName)
+	} else {
+		if stationData.Name != stationName {
+			log.Fatal("scraped station name " + stationName + " not equal to existing station name " + stationData.Name)
+		}
+	}
+	//- assign values for North/West without checking
+	stationData.North = north
+	stationData.West = west
 
 	fmt.Printf("%s Station %s was successfully scraped\n", state, station)
-	fmt.Printf("- Name: %s\n", stationTitle)
+	fmt.Printf("- Name: %s\n", stationName)
 	fmt.Printf("- Latitude: %f North\n", north)
 	fmt.Printf("- Longitude: %f West\n", west)
-	fmt.Printf("\n")
+	fmt.Printf("Saving...")
+	fileData, _ := json.MarshalIndent(data, "","\t")
+	_ = ioutil.WriteFile("data.json", fileData, 0644)
+	fmt.Printf(" done!\n")
 }
 
 
@@ -209,6 +253,20 @@ func main() {
 	args := os.Args
 	//fmt.Println(reflect.TypeOf(args))
 	//fmt.Println(len(args))
+
+	file, _ := ioutil.ReadFile("data.json")
+	json.Unmarshal([]byte(file), &data)
+
+	/*
+	states := data.States
+	for state, stateData := range states {
+		fmt.Printf("states[%s]: %s\n", state, stateData.Name)
+		for station, stationData := range stateData.Stations {
+			fmt.Printf("states[%s].stations[%s]: %s\n", state, station, stationData.Name)
+		}
+	}
+	*/
+
 	if len(args) == 1 {
 		scrapeUSA()
 	} else if len(args) == 2 {
