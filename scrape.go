@@ -26,20 +26,20 @@ type Attribute struct {
 }
 
 type USAirNetMapStationData struct {
-	Code string
-	Name string
-	North float64
-	West float64
+	Code string `json:"code"`
+	Name string `json:"name"`
+	North float64 `json:"north"`
+	West float64 `json:"west"`
 }
 
 type USAirNetMapStateData struct {
-	Code string
-	Name string
-	Stations map[string]*USAirNetMapStationData
+	Code string `json:"code"`
+	Name string `json:"name"`
+	Stations map[string]*USAirNetMapStationData `json:"stations"`
 }
 
 type USAirNetMapData struct {
-	States map[string]*USAirNetMapStateData
+	States map[string]*USAirNetMapStateData `json:"states"`
 }
 
 var data USAirNetMapData
