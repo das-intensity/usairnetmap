@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>USAirNet (unofficial) Map - A handy tool for finding your local USAirNet Aviation Weather</title>
     <style>
        /* Set the size of the div element that contains the map */
       #map {
@@ -22,12 +23,11 @@
       // Initialize and add the map
       function initMap() {
         // The location of Uluru
-        var pitts = {lat: 40.4406, lng: -79.9959};
         // The map, centered at Uluru
         const map = new google.maps.Map(
             document.getElementById('map'), {
-              zoom: 4,
-              center: pitts,
+              zoom: 10,
+              center: {lat: IP2LOC_LATITUDE, lng: IP2LOC_LONGITUDE},
               //mapTypeId: 'terrain'
             });
 
