@@ -276,6 +276,240 @@
 				}
 			}
 		},
+		"OH": {
+			"code": "OH",
+			"name": "Ohio",
+			"stations": {
+				"K4I3": {
+					"code": "K4I3",
+					"name": "Knox County",
+					"latitude": 40.33000183105469,
+					"longitude": -82.5199966430664
+				},
+				"KAKR": {
+					"code": "KAKR",
+					"name": "Akron Fulton",
+					"latitude": 41.040000915527344,
+					"longitude": -81.47000122070312
+				},
+				"KAOH": {
+					"code": "KAOH",
+					"name": "Lima",
+					"latitude": 40.709999084472656,
+					"longitude": -84.0199966430664
+				},
+				"KBJJ": {
+					"code": "KBJJ",
+					"name": "Wooster",
+					"latitude": 40.869998931884766,
+					"longitude": -81.87000274658203
+				},
+				"KBKL": {
+					"code": "KBKL",
+					"name": "Burke Lakefrnt Arpt",
+					"latitude": 41.52000045776367,
+					"longitude": -81.68000030517578
+				},
+				"KCAK": {
+					"code": "KCAK",
+					"name": "Akron Canton",
+					"latitude": 40.91999816894531,
+					"longitude": -81.43000030517578
+				},
+				"KCGF": {
+					"code": "KCGF",
+					"name": "Cuyahoga Co Arpt",
+					"latitude": 41.56999969482422,
+					"longitude": -81.4800033569336
+				},
+				"KCLE": {
+					"code": "KCLE",
+					"name": "Cleveland",
+					"latitude": 41.400001525878906,
+					"longitude": -81.8499984741211
+				},
+				"KCMH": {
+					"code": "KCMH",
+					"name": "Columbus",
+					"latitude": 40,
+					"longitude": -82.87999725341797
+				},
+				"KDAY": {
+					"code": "KDAY",
+					"name": "Dayton",
+					"latitude": 39.900001525878906,
+					"longitude": -84.19999694824219
+				},
+				"KDFI": {
+					"code": "KDFI",
+					"name": "Defiance",
+					"latitude": 41.34000015258789,
+					"longitude": -84.43000030517578
+				},
+				"KDLZ": {
+					"code": "KDLZ",
+					"name": "Delaware",
+					"latitude": 40.279998779296875,
+					"longitude": -83.11000061035156
+				},
+				"KFDY": {
+					"code": "KFDY",
+					"name": "Findlay",
+					"latitude": 41.02000045776367,
+					"longitude": -83.66999816894531
+				},
+				"KFFO": {
+					"code": "KFFO",
+					"name": "Wright Patterson",
+					"latitude": 39.83000183105469,
+					"longitude": -84.05000305175781
+				},
+				"KHAO": {
+					"code": "KHAO",
+					"name": "Hamilton",
+					"latitude": 39.36000061035156,
+					"longitude": -84.5199966430664
+				},
+				"KHZY": {
+					"code": "KHZY",
+					"name": "Ashtabula",
+					"latitude": 41.779998779296875,
+					"longitude": -80.69999694824219
+				},
+				"KILN": {
+					"code": "KILN",
+					"name": "Wilmington",
+					"latitude": 39.41999816894531,
+					"longitude": -83.77999877929688
+				},
+				"KLCK": {
+					"code": "KLCK",
+					"name": "Rickenbacker Afb",
+					"latitude": 39.81999969482422,
+					"longitude": -82.93000030517578
+				},
+				"KLHQ": {
+					"code": "KLHQ",
+					"name": "Lancaster",
+					"latitude": 39.75,
+					"longitude": -82.66999816894531
+				},
+				"KLPR": {
+					"code": "KLPR",
+					"name": "Lorain",
+					"latitude": 41.349998474121094,
+					"longitude": -82.18000030517578
+				},
+				"KLUK": {
+					"code": "KLUK",
+					"name": "Cincinnati/Lunk",
+					"latitude": 39.099998474121094,
+					"longitude": -84.43000030517578
+				},
+				"KMFD": {
+					"code": "KMFD",
+					"name": "Mansfield",
+					"latitude": 40.81999969482422,
+					"longitude": -82.5199966430664
+				},
+				"KMGY": {
+					"code": "KMGY",
+					"name": "Dayton Wright Bros",
+					"latitude": 39.59000015258789,
+					"longitude": -84.2300033569336
+				},
+				"KMNN": {
+					"code": "KMNN",
+					"name": "Marion",
+					"latitude": 40.619998931884766,
+					"longitude": -83.05999755859375
+				},
+				"KMRT": {
+					"code": "KMRT",
+					"name": "Marysville County Airport",
+					"latitude": 40.220001220703125,
+					"longitude": -83.3499984741211
+				},
+				"KMWO": {
+					"code": "KMWO",
+					"name": "Hook Field Municipal Airport",
+					"latitude": 39.529998779296875,
+					"longitude": -84.4000015258789
+				},
+				"KOSU": {
+					"code": "KOSU",
+					"name": "Ohio State Univ",
+					"latitude": 40.08000183105469,
+					"longitude": -83.06999969482422
+				},
+				"KPHD": {
+					"code": "KPHD",
+					"name": "Harry Clever Fld",
+					"latitude": 40.470001220703125,
+					"longitude": -81.41999816894531
+				},
+				"KPOV": {
+					"code": "KPOV",
+					"name": "Ravenna/Portage",
+					"latitude": 41.209999084472656,
+					"longitude": -81.25
+				},
+				"KSGH": {
+					"code": "KSGH",
+					"name": "Springfield",
+					"latitude": 39.83000183105469,
+					"longitude": -83.83000183105469
+				},
+				"KTDZ": {
+					"code": "KTDZ",
+					"name": "Toledo Metcalf Fld",
+					"latitude": 41.560001373291016,
+					"longitude": -83.4800033569336
+				},
+				"KTOL": {
+					"code": "KTOL",
+					"name": "Toledo",
+					"latitude": 41.599998474121094,
+					"longitude": -83.80000305175781
+				},
+				"KTZR": {
+					"code": "KTZR",
+					"name": "Columbus/Bolton Field",
+					"latitude": 39.900001525878906,
+					"longitude": -83.12999725341797
+				},
+				"KUNI": {
+					"code": "KUNI",
+					"name": "Ohio Univ Airport",
+					"latitude": 39.209999084472656,
+					"longitude": -82.2300033569336
+				},
+				"KVES": {
+					"code": "KVES",
+					"name": "Versailles",
+					"latitude": 40.20000076293945,
+					"longitude": -84.52999877929688
+				},
+				"KVTA": {
+					"code": "KVTA",
+					"name": "Newark",
+					"latitude": 40.02000045776367,
+					"longitude": -82.45999908447266
+				},
+				"KYNG": {
+					"code": "KYNG",
+					"name": "Youngstown",
+					"latitude": 41.27000045776367,
+					"longitude": -80.66999816894531
+				},
+				"KZZV": {
+					"code": "KZZV",
+					"name": "Zanesville",
+					"latitude": 39.95000076293945,
+					"longitude": -81.9000015258789
+				}
+			}
+		},
 		"PA": {
 			"code": "PA",
 			"name": "Pennsylvania",
@@ -507,6 +741,102 @@
 					"name": "Allentown",
 					"latitude": 40.56999969482422,
 					"longitude": -75.48999786376953
+				}
+			}
+		},
+		"WV": {
+			"code": "WV",
+			"name": "West Virginia",
+			"stations": {
+				"K3I2": {
+					"code": "K3I2",
+					"name": "Mason County Airport",
+					"latitude": 38.90999984741211,
+					"longitude": -82.0999984741211
+				},
+				"KBKW": {
+					"code": "KBKW",
+					"name": "Beckley",
+					"latitude": 37.779998779296875,
+					"longitude": -81.12000274658203
+				},
+				"KBLF": {
+					"code": "KBLF",
+					"name": "Bluefield",
+					"latitude": 37.29999923706055,
+					"longitude": -81.22000122070312
+				},
+				"KCKB": {
+					"code": "KCKB",
+					"name": "Clarksburg",
+					"latitude": 39.279998779296875,
+					"longitude": -80.2300033569336
+				},
+				"KCRW": {
+					"code": "KCRW",
+					"name": "Charleston",
+					"latitude": 38.369998931884766,
+					"longitude": -81.5999984741211
+				},
+				"KEKN": {
+					"code": "KEKN",
+					"name": "Elkins",
+					"latitude": 38.880001068115234,
+					"longitude": -79.8499984741211
+				},
+				"KHLG": {
+					"code": "KHLG",
+					"name": "Wheeling",
+					"latitude": 40.18000030517578,
+					"longitude": -80.6500015258789
+				},
+				"KHTS": {
+					"code": "KHTS",
+					"name": "Huntington",
+					"latitude": 38.369998931884766,
+					"longitude": -82.55000305175781
+				},
+				"KI16": {
+					"code": "KI16",
+					"name": "Pineville/Kee Field",
+					"latitude": 37.599998474121094,
+					"longitude": -81.55999755859375
+				},
+				"KLWB": {
+					"code": "KLWB",
+					"name": "Lewisburg",
+					"latitude": 37.869998931884766,
+					"longitude": -80.4000015258789
+				},
+				"KMGW": {
+					"code": "KMGW",
+					"name": "Morgantown",
+					"latitude": 39.650001525878906,
+					"longitude": -79.91999816894531
+				},
+				"KMRB": {
+					"code": "KMRB",
+					"name": "Martinsburg",
+					"latitude": 39.400001525878906,
+					"longitude": -77.9800033569336
+				},
+				"KPKB": {
+					"code": "KPKB",
+					"name": "Parkersburg",
+					"latitude": 39.349998474121094,
+					"longitude": -81.43000030517578
+				},
+				"KW22": {
+					"code": "KW22",
+					"name": "Buckhannon",
+					"latitude": 39,
+					"longitude": -80.2699966430664
+				},
+				"KW99": {
+					"code": "KW99",
+					"name": "Petersburg",
+					"latitude": 38.9900016784668,
+					"longitude": -79.1500015258789
 				}
 			}
 		}
