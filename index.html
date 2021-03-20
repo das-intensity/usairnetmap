@@ -6,82 +6,64 @@
        /* Set the size of the div element that contains the map */
       #map {
         height: 100%;
-        /*height: 400px; */  /* The height is 400 pixels */
-        /*width: 100%; */  /* The width is the width of the web page */
        }
       html, body {
         height: 100%;
         margin: 0;
         padding: 0;
     </style>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""></script>
   </head>
   <body>
-    <!-- <h3>My Google Maps Demo</h3> -->
-    <!--The div element for the map -->
     <div id="map"></div>
     <script>
-      // Initialize and add the map
-      function initMap() {
-        // The location of Uluru
-        // The map, centered at Uluru
-        const map = new google.maps.Map(
-            document.getElementById('map'), {
-              zoom: 10,
-              center: {lat: IP2LOC_LATITUDE, lng: IP2LOC_LONGITUDE},
-              //mapTypeId: 'terrain'
-            });
+      // Initialize and add the map to middle of USA
+      var map = L.map('map').setView([38.8782217,-97.6745261], 6);
+      L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+          attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+          maxZoom: 18,
+          id: 'mapbox/streets-v11',
+          tileSize: 512,
+          zoomOffset: -1,
+          accessToken: 'MAPBOX_TOKEN'
+      }).addTo(map);
 
-        const infowindow = new google.maps.InfoWindow();
+      function placeMarker(state, station) {
+        //- create marker
+        const marker = L.marker([station.latitude, station.longitude]).addTo(map);
 
-        function placeMarker(state, station) {
-          //- create marker
-          const marker = new google.maps.Marker({
-            title: station.name + ", " + state.code,
-            map: map,
-            position: {lat: station.latitude, lng: station.longitude},
-          });
+        //- create popup
+        var stationHtml = '<div id=' + state.code + '-' + station.code + '>' + 
+          '<b>' + station.name + ', ' + state.name + '</b><br>' + 
+          '<a href="http://www.usairnet.com/cgi-bin/launch/code.cgi?Submit=Go&sta=' + station.code + '&state=' + state.code + '">USAirNet Aviation Weather</a><br>' + 
+          '</div>';
+        marker.bindPopup(stationHtml);
+      }
 
-          var stationHtml = '<div id=' + state.code + '-' + station.code + '>' + 
-            '<b>' + station.name + ', ' + state.name + '</b><br>' + 
-            '<a href="http://www.usairnet.com/cgi-bin/launch/code.cgi?Submit=Go&sta=' + station.code + '&state=' + state.code + '">USAirNet Aviation Weather</a><br>' + 
-            '</div>';
-          google.maps.event.addListener(marker, 'click', function() {
-            infowindow.close();
-            infowindow.setContent(stationHtml);
-            infowindow.open(map, marker);
-          });
-        }
-
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-          if (this.readyState == 4 && this.status == 200) {
-            var data = JSON.parse(this.responseText);
-            //console.log(data);
-            for (var stateCode in data.states) {
-              //console.log(stateCode);
-              var stateData = data.states[stateCode];
-              //console.log(stateData.name)
-              for (var stationCode in stateData.stations) {
-                console.log(stationCode);
-                var stationData = stateData.stations[stationCode];
-                placeMarker(stateData, stationData);
-              }
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          var data = JSON.parse(this.responseText);
+          //console.log(data);
+          for (var stateCode in data.states) {
+            //console.log(stateCode);
+            var stateData = data.states[stateCode];
+            //console.log(stateData.name)
+            for (var stationCode in stateData.stations) {
+              //console.log(stationCode);
+              var stationData = stateData.stations[stationCode];
+              placeMarker(stateData, stationData);
             }
           }
-        };
-        xmlhttp.open("GET", "data.json", true);
-        xmlhttp.send(); 
-
-      } // initMap
-
-    </script>
-    <!--Load the API from the specified URL
-    * The async attribute allows the browser to render the page while the API loads
-    * The key parameter will contain your own API key (which is not needed for this tutorial)
-    * The callback parameter executes the initMap() function
-    -->
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCG2tMcJSCT1CB7UCTzI3oEf8rOjOcaCs&callback=initMap">
+        }
+      };
+      xmlhttp.open("GET", "/data.json", true);
+      xmlhttp.send(); 
     </script>
   </body>
 </html>
