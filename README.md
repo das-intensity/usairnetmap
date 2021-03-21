@@ -4,23 +4,6 @@ A map showing all US Air Net locations with links to their respective pages.
 
 This can be used by skydivers or pilots to check aviation weather near them, without needing to know in advance which stations might be close.
 
-Setup:
-
-- install nodejs (13.10 works, unsure of others)
-- run `$ npm install ip2location-nodejs`
-- run `$ node server.js`
-- install nginx
-- add `/etc/nginx/sites-enabled/usairmapnet.conf` with:
-```
-server {
-    listen 80;
-    server_name usairmapnet.com;
-    location / {
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_pass http://127.0.0.1:8080;
-    }
-}
-```
 
 Data is stored as a large JSON dictionary called data.json which looks like:
 
@@ -46,3 +29,13 @@ Data is stored as a large JSON dictionary called data.json which looks like:
   }
 }
 ```
+
+
+## Deployment (from scratch)
+
+1. Configure profile (matching `~/.aws/credentials`) and tfstate S3 bucket in main.tf
+1. Run the terraform script to create bucket and user
+1. Go to AWS console and create access keys for user
+1. Save these into github repo secrets as `AWS_ACCESS_KEY_ID` / `AWS_SECRET_ACCESS_KEY`
+1. Configure CNAME record to redirect `@` to your bucket endpoint (look up in AWS console)
+1. Push changes or run github workflow, then go to http://usairnetmap.com and see if it all works!
