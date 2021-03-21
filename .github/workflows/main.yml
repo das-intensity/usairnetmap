@@ -25,3 +25,4 @@ jobs:
         run: |
           aws s3 cp index.html s3://usairnetmap.com/index.html
           aws s3 cp error.html s3://usairnetmap.com/error.html
+          aws s3 cp data.json s3://usairnetmap.com/data.json
