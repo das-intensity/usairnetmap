@@ -3,7 +3,7 @@ terraform {
     profile = "arbeiter"
     bucket = "intense-tfstates"
     key = "usairnetmap"
-    region = "us-east-2"
+    region = "us-east-1"
   }
   required_providers {
     aws = {
@@ -16,7 +16,7 @@ terraform {
 
 provider "aws" {
   profile = "arbeiter"
-  region  = "us-west-2"
+  region  = "us-east-1"
 }
 
 
