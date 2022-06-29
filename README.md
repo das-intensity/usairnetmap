@@ -30,6 +30,13 @@ Data is stored as a large JSON dictionary called data.json which looks like:
 }
 ```
 
+## GoLang Setup
+```
+$ go mod init scrape.go
+$ go mod tidy
+$ go run scrape.go
+```
+
 
 ## Deployment (from scratch)
 

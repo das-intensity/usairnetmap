@@ -105,21 +105,21 @@ func getNodeFromUrl(url string) *html.Node {
 
 func scrapeStation(state string, station string) {
 	url := "http://www.usairnet.com/cgi-bin/launch/code.cgi?Submit=Go&state=" + state + "&sta=" + station
+	//fmt.Println(url)
 	//body := getHTML(url)
 	//fmt.Println(body)
 	root := getNodeFromUrl(url)
 
-	td, fail := getElement(root, "td", Attribute{"class", "norm2"})
-	if fail { log.Fatal(fail) }
-
 	// get the heading that contains the station title
-	headingSpan, fail := getElement(td, "span", Attribute{"class", "bolder"})
-	if fail { log.Fatal(fail) }
+	headingSpan, fail := getElement(root, "span", Attribute{"class", "bolder"})
+	if fail {
+		log.Fatal("scrapeStation(" + state + ", " + station + ") failed to get span class bolder")
+	}
 	headingStrong := headingSpan.FirstChild
-	headingText := headingStrong.Data
+	headingText := headingStrong.FirstChild.Data
 	//fmt.Printf("headingText: %s\n", headingText)
 
-	headingPrefix := "Aviation Weather Report for "
+	headingPrefix := "Aviation Weather Forecast at "
 	if !strings.Contains(headingText, headingPrefix) {
 		log.Fatal("Heaing text (" + headingText + ") doesn't contain expected prefix (" + headingPrefix + ")")
 	}
@@ -136,7 +136,7 @@ func scrapeStation(state string, station string) {
 	//fmt.Printf("stateName: %s\n", stateName)
 
 	// get the details line, and extract out station code (for confirmation) and coords
-	detailSpan, fail := getElement(td, "span", Attribute{"class", "norm2"})
+	detailSpan, fail := getElement(root, "span", Attribute{"class", "norm2"})
 	if fail { log.Fatal(fail) }
 
 	text := detailSpan.FirstChild.Data
@@ -217,7 +217,7 @@ func scrapeState(state string) {
 	root := getNodeFromUrl(url)
 	sel, fail := getElement(root, "select", Attribute{"name", "sta"})
 	if fail {
-		log.Fatal(fail)
+		log.Fatal("scrapeState(" + state + ") failed to get 'select' element named 'sta'")
 	}
 	stations := getSelectOptions(sel)
 	//fmt.Println(len(stations))
@@ -236,7 +236,7 @@ func scrapeUSA() {
 	root := getNodeFromUrl(url)
 	sel, fail := getElement(root, "select", Attribute{"name", "state"})
 	if fail {
-		log.Fatal(fail)
+		log.Fatal("scrapeUSA() failed to get 'select' element named 'state'")
 	}
 	states := getSelectOptions(sel)
 	//fmt.Println(len(states))

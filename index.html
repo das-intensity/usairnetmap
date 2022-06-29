@@ -38,10 +38,10 @@
         const marker = L.marker([station.latitude, station.longitude]).addTo(map);
 
         //- create popup
-        var stationHtml = '<div id=' + state.code + '-' + station.code + '>' + 
-          '<b>' + station.name + ', ' + state.name + '</b><br>' + 
-          '<a href="http://www.usairnet.com/cgi-bin/launch/code.cgi?Submit=Go&sta=' + station.code + '&state=' + state.code + '">USAirNet Aviation Weather</a><br>' + 
-          '</div>';
+        var stationHtml = '<font size="+3"><div id=' + state.code + '-' + station.code + '>' +
+          '<b>' + station.name + ', ' + state.name + '</b><br>' +
+          '<a href="http://www.usairnet.com/cgi-bin/launch/code.cgi?Submit=Go&sta=' + station.code + '&state=' + state.code + '">USAirNet Aviation Weather</a><br>' +
+          '</div></font>';
         marker.bindPopup(stationHtml);
       }
 
@@ -63,7 +63,7 @@
         }
       };
       xmlhttp.open("GET", "/data.json", true);
-      xmlhttp.send(); 
+      xmlhttp.send();
     </script>
   </body>
 </html>
